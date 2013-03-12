@@ -1,0 +1,42 @@
+# ----------------------------------------------------------
+# Configuration file for file monitoring 
+# ----------------------------------------------------------
+
+# file monitoring threads
+threads:
+ JMA:
+  monitor_path: "/home/akira"
+  source_id: "JMA"
+  archive_path: "/tmp/"
+  filters:
+    - "*.xml"
+    - "*.bin"
+    - "*.tar.gz"
+
+ KSN:
+  monitor_path: "/home/akira"
+  source_id: "KSN"
+  archive_path: "/tmp/"
+  filters:
+   - "*.xml"
+   - "*.tar.gz"
+
+# lgdis system mode - 0:normal 1:test 2:training
+mode: "0"
+
+# queue client class name
+# - valus -
+# QueueClientSocket: uses unix domain socket
+# QueueClientResque: uses resque
+queue_client: QueueClientSocket
+
+# queue packet header constants(file format)
+format_header:
+ .tar: "BIN"
+ .gz: "BIN"
+ .tgz: "BIN"
+ .bin: "BIN"
+ .xml: "XML"
+ .pdf: "PDF"
+
+
